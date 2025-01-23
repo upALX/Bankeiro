@@ -1,0 +1,9 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+RUN pip install twilio
+
+COPY platforms/wpp_bot.py /app/
+
+CMD ["python", "wpp_bot.py"]

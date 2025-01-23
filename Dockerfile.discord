@@ -1,0 +1,9 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+RUN pip install discord.py
+
+COPY platforms/discord_bot.py /app/
+
+CMD ["python", "discord_bot.py"]

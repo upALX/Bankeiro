@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: bankero
+    ports:
+      - "5000:5000" 
+    volumes:
+      - .:/app  
+    environment:
+      - FLASK_APP=main.py
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://user:password@db/bankero  
+    depends_on:
+      - db  
+    restart: always
+
+  db:
+    image: postgres:14  
+    container_name: bankero_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: bankero
+    volumes:
+      - db_data:/var/lib/postgresql/data  
+    ports:
+      - "5432:5432"  
+    restart: always
+
+  discord_bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.discord  
+    container_name: discord_bot
+    environment:
+      - DISCORD_TOKEN=your_discord_token  
+    depends_on:
+      - app
+    restart: always
+
+  telegram_bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.telegram  
+    container_name: telegram_bot
+    environment:
+      - TELEGRAM_TOKEN=your_telegram_token  
+    depends_on:
+      - app
+    restart: always
+
+  wpp_bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.wpp  
+    container_name: wpp_bot
+    environment:
+      - WPP_API_KEY=your_whatsapp_api_key  
+    depends_on:
+      - app
+    restart: always
+
+volumes:
+  db_data:  
