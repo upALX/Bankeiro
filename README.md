@@ -21,10 +21,12 @@ Bankero is an assistent to control my financials.
 
 If you has a Python 3 installed on your desktop on the current version explained abovetr, follow this:
 
+
 **1 - Clone this repo:**
 ```
 git clone git@github.com:upALX/Bankero
 ```
+
 
 ## Make your mark :triangular_flag_on_post:   
 
