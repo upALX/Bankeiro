@@ -26,7 +26,6 @@ If you has a Python 3 installed on your desktop on the current version explained
 git clone git@github.com:upALX/Bankero
 ```
 
-
 ## Make your mark :triangular_flag_on_post:   
 
 **If you have any problems with this app or have an idea that contributes, open a [issue](https://github.com/upALX/Bankero/issues), [pull request](https://github.com/upALX/Bankero/pulls) or find me on [Linkedin](https://www.linkedin.com/in/alxinc/). Don't forget to give the project a star 🌟 :D**
