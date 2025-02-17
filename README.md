@@ -6,7 +6,7 @@ Bankero is an assistent to control my financials.
 
 ![giphy](https://github.com/upALX/All-Assets/blob/main/on-mvp.webp)
 
-**This project is under development**
+🚀🎇**This project is under development**🎇🚀
 
 ---
 

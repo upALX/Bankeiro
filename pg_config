@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Definindo variáveis de configuração
+PG_VERSION="14.1"                          # Versão do PostgreSQL
+PG_PREFIX="/usr/pgsql-$PG_VERSION"         # Prefixo da instalação do PostgreSQL
+PG_BINDIR="$PG_PREFIX/bin"                 # Diretório binário
+PG_INCDIR="$PG_PREFIX/include"             # Diretório de cabeçalhos
+PG_LIBDIR="$PG_PREFIX/lib"                 # Diretório das bibliotecas
+PG_DATADIR="$PG_PREFIX/data"               # Diretório de dados
+
+# Funções para os parâmetros do pg_config
+pg_config() {
+    case "$1" in
+        --version)
+            echo "$PG_VERSION"
+            ;;
+        --prefix)
+            echo "$PG_PREFIX"
+            ;;
+        --bindir)
+            echo "$PG_BINDIR"
+            ;;
+        --incdir)
+            echo "$PG_INCDIR"
+            ;;
+        --libdir)
+            echo "$PG_LIBDIR"
+            ;;
+        --datadir)
+            echo "$PG_DATADIR"
+            ;;
+        *)
+            echo "Opção inválida. Use --version, --prefix, --bindir, --incdir, --libdir, ou --datadir"
+            return 1
+            ;;
+    esac
+}
+
+# Executando a função conforme o argumento
+pg_config "$1"
